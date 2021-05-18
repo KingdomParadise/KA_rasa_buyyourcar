@@ -1,0 +1,236 @@
+version: "2.0"
+
+stories:
+
+  - story: buy-car-user_state-private-1 + correct-phone-number + correct-date-time
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_about_user_state
+    - intent: user_state.private
+    - action: utter_ask_information.phone_number
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: True
+    - action: utter_ask_information.best_call_time
+    - intent: user_information.best_call_time
+    - action: action_validate-time-date
+    - slot_was_set:
+      - valid-date-time: True
+    - action: utter_confirm
+    - action: action_end-story
+
+  - story: buy-car-user_state-private-1 + correct-phone-number + wrong-date-time
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_about_user_state
+    - intent: user_state.private
+    - action: utter_ask_information.phone_number
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: True
+    - action: utter_ask_information.best_call_time
+    - intent: user_information.best_call_time
+    - action: action_validate-time-date
+    - slot_was_set:
+      - valid-date-time: False
+    - action: utter_wrong_date-time
+  
+  - story: buy-car-user_state-private-1 + correct-phone-number + wrong-date-time + end-conversation
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_about_user_state
+    - intent: user_state.private
+    - action: utter_ask_information.phone_number
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: True
+    - action: utter_ask_information.best_call_time
+    - intent: user_information.best_call_time
+    - action: action_validate-time-date
+    - slot_was_set:
+      - end-conversation: true
+    - action: utter_get-in-touch
+    - action: action_end-story
+
+  - story: buy-car-user_state-private-1 + wrong-phone-number
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_about_user_state
+    - intent: user_state.private
+    - action: utter_ask_information.phone_number
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: False
+    - action: utter_wrong_phone-number
+
+  - story: buy-car-user_state-private-2 + correct-phone-number + correct-date-time
+    steps:
+    - intent: user_state.private
+    - action: utter_ask_information.phone_number
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: True
+    - action: utter_ask_information.best_call_time
+    - intent: user_information.best_call_time
+    - action: action_validate-time-date
+    - slot_was_set:
+      - valid-date-time: True
+    - action: utter_confirm
+    - action: action_end-story
+
+  - story: buy-car-user_state-private-2 + correct-phone-number + wrong-date-time
+    steps:
+    - intent: user_state.private
+    - action: utter_ask_information.phone_number
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: True
+    - action: utter_ask_information.best_call_time
+    - intent: user_information.best_call_time
+    - action: action_validate-time-date
+    - slot_was_set:
+      - valid-date-time: False
+    - action: utter_wrong_date-time
+  
+  - story: buy-car-user_state-private-2 + correct-phone-number + wrong-date-time + end-conversation
+    steps:
+    - intent: user_state.private
+    - action: utter_ask_information.phone_number
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: True
+    - action: utter_ask_information.best_call_time
+    - intent: user_information.best_call_time
+    - action: action_validate-time-date
+    - slot_was_set:
+      - end-conversation: true
+    - action: utter_get-in-touch
+    - action: action_end-story
+
+  - story: buy-car-user_state-private-2 + wrong-phone-number
+    steps:
+    - intent: user_state.private
+    - action: utter_ask_information.phone_number
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: False
+    - action: utter_wrong_phone-number
+
+  - story: buy-car-user_state-dealer-1
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_about_user_state
+    - intent: user_state.dealer
+    - action: utter_end_conversation
+  
+  - story: buy-car-user_state-dealer-2
+    steps:
+    - intent: user_state.dealer
+    - action: utter_end_conversation
+
+  - story: user-gives-information-phone_number + correct-phone-number + correct-date-time
+    steps:
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: True
+    - action: utter_ask_information.best_call_time
+    - intent: user_information.best_call_time
+    - action: action_validate-time-date
+    - slot_was_set:
+      - valid-date-time: True
+    - action: utter_confirm
+    - action: action_end-story
+
+  - story: user-gives-information-phone_number + correct-phone-number + wrong-date-time
+    steps:
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: True
+    - action: utter_ask_information.best_call_time
+    - intent: user_information.best_call_time
+    - action: action_validate-time-date
+    - slot_was_set:
+      - valid-date-time: False
+    - action: utter_wrong_date-time
+
+  - story: user-gives-information-phone_number + correct-phone-number + wrong-date-time + end-conversation
+    steps:
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: True
+    - action: utter_ask_information.best_call_time
+    - intent: user_information.best_call_time
+    - action: action_validate-time-date
+    - slot_was_set:
+      - end-conversation: true
+    - action: utter_get-in-touch
+    - action: action_end-story
+
+  - story: user-gives-information-phone_number + wrong-phone-number
+    steps:
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: False
+    - action: utter_wrong_phone-number
+
+  - story: user-gives-information-best_call_time # correct date-time
+    steps:
+    - intent: user_information.best_call_time
+    - action: action_validate-time-date
+    - slot_was_set:
+      - valid-date-time: True
+    - action: utter_confirm
+    - action: action_end-story
+
+  - story: user-gives-information-best_call_time # wrong date-time
+    steps:
+    - intent: user_information.best_call_time
+    - action: action_validate-time-date
+    - slot_was_set:
+      - valid-date-time: False
+    - action: utter_wrong_date-time
+
+  - story: user-gives-information-best_call_time + end-conversation # wrong date-time
+    steps:
+    - intent: user_information.best_call_time
+    - action: action_validate-time-date
+    - slot_was_set:
+      - end-conversation: True
+    - action: utter_get-in-touch
+    - action: action_end-story
+
+  ### user refuse too give his number / wants to complete chatting
+
+  - story: buy-car-user_state-private + user refuse to give his number (wants to chat)
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_about_user_state
+    - intent: user_state.private
+    - action: utter_ask_information.phone_number
+    - intent: user.refuse_to_give_number
+    - action: utter_accept_user.refuse_to_give_number
+    - action: action_end-story
+
+  - story: user refuse to give his number
+    steps:
+    - intent: user.refuse_to_give_number
+    - action: utter_accept_user.refuse_to_give_number
+    - action: action_end-story

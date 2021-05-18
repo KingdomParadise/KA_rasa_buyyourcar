@@ -1,0 +1,114 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - thank_you
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - user_state.dealer
+  - user_state.private
+  - user_information.phone_number
+  - user_information.best_call_time
+  - user.refuse_to_give_number
+
+entities:
+  - phone-number
+  - time
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+  - text: "Nice to meet you! 😄"
+  - text: "Hey There 👋"
+  - text: "Greetings 😀"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, developed by Ebunch."
+
+  utter_ask_about_user_state:
+  - text: "Just wondering if it is a private sale or are you a dealer?"
+  - text: "Are you a private sale or a dealer?"
+  - text: "Do you need a car for yourself or are you a dealer?"
+
+  utter_ask_information.phone_number:
+  - text: "Awesome!\n\
+Would you mind sharing your phone number so we could have a detailed conversation?"
+  - text: "Could you please provide your telephone number so we can discuss more details?"
+
+  utter_ask_information.best_call_time:
+  - text: "what is the best time to call you?"
+
+  utter_confirm:
+  - text: "Great! Thank you, we will contact you on {date} at {time} on {phone-number} 👌\nWe will get back to you!"
+  - text: "Awesome! Looking forward to contacting you on {date} at {time} on {phone-number}! 👌\nWe will get back to you!"
+
+  utter_end_conversation:
+  - text: "ok, thanks"
+
+  utter_thank_you:
+  - text: "Anytime. That's what I'm here for."
+  - text: "It's my pleasure to help."
+
+  utter_wrong_phone-number:
+  - text: "Sorry! but given phone number is wrong 😟\n\
+  Could you please re-enter it?"
+
+  utter_wrong_date-time:
+  - text: "Sorry! but the given time is wrong 😟\n\
+  Could you please re-enter it?"
+
+  utter_get-in-touch:
+  - text: "Thanks, we will be in touch with you"
+
+  utter_accept_user.refuse_to_give_number:
+  - text: "OK, No worries we can chat here"
+  - text: "No problem, let's continue chatting here!"
+  - text: "Alright!, let's keep chatting here"
+
+
+actions:
+  - action_validate-phone-number
+  - action_validate-time-date
+  - action_end-story
+
+slots:
+  valid-phone-number:
+    type: bool
+    influence_conversation: true
+  
+  phone-number:
+    type: text
+    influence_conversation: false
+  
+  valid-date-time:
+    type: bool
+    influence_conversation: true
+  
+  date:
+    type: text
+    influence_conversation: false
+
+  time:
+    type: text
+    influence_conversation: false
+
+  end-conversation:
+    type: bool
+    influence_conversation: true

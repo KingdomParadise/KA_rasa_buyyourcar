@@ -1,0 +1,27 @@
+# Configuration for Rasa NLU.
+language: en
+
+pipeline:
+  - name: text-normalizer.TextNormalizer
+  - name: WhitespaceTokenizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
+    epochs: 100
+  - name: DucklingEntityExtractor
+    url: http://0.0.0.0:8000
+    locale: en_GB
+    dimensions: ["time","phone-number"]
+
+
+# Configuration for Rasa Core.
+policies:
+  - name: MemoizationPolicy
+  - name: TEDPolicy
+    epochs: 100
+  - name: RulePolicy

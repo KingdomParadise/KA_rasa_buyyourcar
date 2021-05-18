@@ -1,0 +1,9 @@
+action_endpoint:
+ url: "http://localhost:5055/webhook"
+
+tracker_store:
+    type: SQL
+    dialect: "sqlite"
+    db: "buy-your-car-db.db"  # path to your db
+    username:  # username used for authentication
+    password:  # password used for authentication
