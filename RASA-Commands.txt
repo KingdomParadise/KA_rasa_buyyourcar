@@ -1,0 +1,46 @@
+Go to root of Project
+
+Activate 
+source venv/bin/activate
+
+Train model
+rasa train --fixed-model-name "buy-your-car-v2"
+
+Check Active RASA Process
+ps -fA | grep python
+
+Kill Process
+kill -9 <PID>
+
+Run RASA core
+nohup rasa run -m models -p 5006 --enable-api --cors "*" --endpoints endpoints.yml &
+
+Run RASA Actions
+nohup rasa run actions &
+
+Make process run forever
+nohup <command> &
+
+
+Install Rasa on local server
+
+Go to root directory of your RASA project
+
+1) Make Virtual Environment(Once)
+	virtualenv venv
+	
+2) Active your environment(Everytime)
+	venv\Scripts\activate
+	
+3) Install RASA
+	pip install rasa==2.4.0(Once)
+	
+4) Run RASA Core(Everytime)
+	rasa run -m models -p 5006 --enable-api --cors "*" --endpoints endpoints.yml
+	
+5) Run RASA Actions(Everytime)
+	rasa run actions
+	
+6) Train RASA NLU
+	rasa train --fixed-model-name "buy-your-car-v2"
+	

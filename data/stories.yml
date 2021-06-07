@@ -138,6 +138,7 @@ stories:
   
   - story: buy-car-user_state-dealer-2
     steps:
+      
     - intent: user_state.dealer
     - action: utter_end_conversation
 

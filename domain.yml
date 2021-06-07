@@ -5,7 +5,7 @@ intents:
   - goodbye
   - thank_you
   - affirm
-  - deny
+  - deny                
   - mood_great
   - mood_unhappy
   - bot_challenge
@@ -25,6 +25,7 @@ responses:
   - text: "Nice to meet you! 😄"
   - text: "Hey There 👋"
   - text: "Greetings 😀"
+  - text: "Hello, Nice to meet you! 😄"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"
@@ -40,7 +41,7 @@ responses:
   - text: "Bye"
 
   utter_iamabot:
-  - text: "I am a bot, developed by Ebunch."
+  - text: "It's Ebunch Car Buying Team"
 
   utter_ask_about_user_state:
   - text: "Just wondering if it is a private sale or are you a dealer?"
