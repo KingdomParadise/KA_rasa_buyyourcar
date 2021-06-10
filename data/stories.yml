@@ -2,236 +2,185 @@ version: "2.0"
 
 stories:
 
-  - story: buy-car-user_state-private-1 + correct-phone-number + correct-date-time
-    steps:
+  - story: user_state-private-greet + correct-phone-number + correct-call-time
+   step:
     - intent: greet
     - action: utter_greet
-    - action: utter_ask_about_user_state
+    - action: utter_ask_user_state
     - intent: user_state.private
-    - action: utter_ask_information.phone_number
+    - action: utter_great
+    - action: utter_ask_information
     - intent: user_information.phone_number
     - action: action_validate-phone-number
     - slot_was_set:
       - valid-phone-number: True
-    - action: utter_ask_information.best_call_time
-    - intent: user_information.best_call_time
-    - action: action_validate-time-date
+    - action: utter_thanks
+    - action: utter_ask_information.call_time
+    - intent: user_information.call_time
+    - action: action_validate-call-time
     - slot_was_set:
-      - valid-date-time: True
+      -valid-call-time: True
     - action: utter_confirm
-    - action: action_end-story
-
-  - story: buy-car-user_state-private-1 + correct-phone-number + wrong-date-time
-    steps:
-    - intent: greet
-    - action: utter_greet
-    - action: utter_ask_about_user_state
-    - intent: user_state.private
-    - action: utter_ask_information.phone_number
-    - intent: user_information.phone_number
-    - action: action_validate-phone-number
-    - slot_was_set:
-      - valid-phone-number: True
-    - action: utter_ask_information.best_call_time
-    - intent: user_information.best_call_time
-    - action: action_validate-time-date
-    - slot_was_set:
-      - valid-date-time: False
-    - action: utter_wrong_date-time
-  
-  - story: buy-car-user_state-private-1 + correct-phone-number + wrong-date-time + end-conversation
-    steps:
-    - intent: greet
-    - action: utter_greet
-    - action: utter_ask_about_user_state
-    - intent: user_state.private
-    - action: utter_ask_information.phone_number
-    - intent: user_information.phone_number
-    - action: action_validate-phone-number
-    - slot_was_set:
-      - valid-phone-number: True
-    - action: utter_ask_information.best_call_time
-    - intent: user_information.best_call_time
-    - action: action_validate-time-date
-    - slot_was_set:
-      - end-conversation: true
-    - action: utter_get-in-touch
-    - action: action_end-story
-
-  - story: buy-car-user_state-private-1 + wrong-phone-number
-    steps:
-    - intent: greet
-    - action: utter_greet
-    - action: utter_ask_about_user_state
-    - intent: user_state.private
-    - action: utter_ask_information.phone_number
-    - intent: user_information.phone_number
-    - action: action_validate-phone-number
-    - slot_was_set:
-      - valid-phone-number: False
-    - action: utter_wrong_phone-number
-
-  - story: buy-car-user_state-private-2 + correct-phone-number + correct-date-time
-    steps:
-    - intent: user_state.private
-    - action: utter_ask_information.phone_number
-    - intent: user_information.phone_number
-    - action: action_validate-phone-number
-    - slot_was_set:
-      - valid-phone-number: True
-    - action: utter_ask_information.best_call_time
-    - intent: user_information.best_call_time
-    - action: action_validate-time-date
-    - slot_was_set:
-      - valid-date-time: True
-    - action: utter_confirm
-    - action: action_end-story
-
-  - story: buy-car-user_state-private-2 + correct-phone-number + wrong-date-time
-    steps:
-    - intent: user_state.private
-    - action: utter_ask_information.phone_number
-    - intent: user_information.phone_number
-    - action: action_validate-phone-number
-    - slot_was_set:
-      - valid-phone-number: True
-    - action: utter_ask_information.best_call_time
-    - intent: user_information.best_call_time
-    - action: action_validate-time-date
-    - slot_was_set:
-      - valid-date-time: False
-    - action: utter_wrong_date-time
-  
-  - story: buy-car-user_state-private-2 + correct-phone-number + wrong-date-time + end-conversation
-    steps:
-    - intent: user_state.private
-    - action: utter_ask_information.phone_number
-    - intent: user_information.phone_number
-    - action: action_validate-phone-number
-    - slot_was_set:
-      - valid-phone-number: True
-    - action: utter_ask_information.best_call_time
-    - intent: user_information.best_call_time
-    - action: action_validate-time-date
-    - slot_was_set:
-      - end-conversation: true
-    - action: utter_get-in-touch
-    - action: action_end-story
-
-  - story: buy-car-user_state-private-2 + wrong-phone-number
-    steps:
-    - intent: user_state.private
-    - action: utter_ask_information.phone_number
-    - intent: user_information.phone_number
-    - action: action_validate-phone-number
-    - slot_was_set:
-      - valid-phone-number: False
-    - action: utter_wrong_phone-number
-
-  - story: buy-car-user_state-dealer-1
-    steps:
-    - intent: greet
-    - action: utter_greet
-    - action: utter_ask_about_user_state
-    - intent: user_state.dealer
     - action: utter_end_conversation
-  
-  - story: buy-car-user_state-dealer-2
-    steps:
-      
+
+  - story: buy-car-user_deny
+    - intent: deny
+    - action: utter_end_conversation
+
+  - story: user_state-dealder-greet
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_user_state
+    - intent: user_state.dealer
+    - action: utter_thanks
+    - action: utter_goodbye
+
+  - story: user_wrong-user-type
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_user_state
+    - intent: user_state.other
+    - action: utter_wrong_user-type
+    - action: utter_end_conversation
+
+  - story: user_state-private-greet + deny-phone-number
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_user_state
+    - intent: user_state.private
+    - action: utter_great
+    - action: utter_ask_information.phone_number
+    - intent: deny
+    - action: utter_accept_user.refuse_to_give_number
+
+  - story: user_state-private-greet + wrong-phone-number
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_user_state
+    - intent: user_state.private
+    - action: utter_great
+    - action: utter_ask_information.phone_number
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: false
+    - action: utter_wrong_phone-number
+
+  - story: user_state-private-greet + correct-phone-number + wrong-call-time
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_user_state
+    - intent: user_state.private
+    - action: utter_great
+    - action: utter_ask_information.phone_number
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: true
+    - action: utter_great
+    - action: utter_ask_information.call_time
+    - intent: user_information.call_time
+    - action: action_validate-call-time
+    - slot_was_set:
+      - valid-call-time: false
+    - action: utter_wrong_call-time
+
+  - story: user_state-dealder-status
     - intent: user_state.dealer
     - action: utter_end_conversation
 
-  - story: user-gives-information-phone_number + correct-phone-number + correct-date-time
-    steps:
+  - story: user_state-private-status + correct-phone-number + correct-call-time
+    - intent: user_state.private
+    - action: utter_great
+    - action: utter_ask_information
     - intent: user_information.phone_number
     - action: action_validate-phone-number
     - slot_was_set:
       - valid-phone-number: True
-    - action: utter_ask_information.best_call_time
-    - intent: user_information.best_call_time
-    - action: action_validate-time-date
+    - action: utter_thanks
+    - action: utter_ask_information.call_time
+    - intent: user_information.call_time
+    - action: action_validate-call-time
     - slot_was_set:
-      - valid-date-time: True
+      -valid-call-time: True
     - action: utter_confirm
-    - action: action_end-story
+    - action: utter_end_conversation
 
-  - story: user-gives-information-phone_number + correct-phone-number + wrong-date-time
-    steps:
+  - story: user_state-private-status + deny-phone-number
+    - intent: user_state.private
+    - action: utter_great
+    - action: utter_ask_information.phone_number
+    - intent: deny
+    - action: utter_accept_user.refuse_to_give_number
+
+  - story: user_state-private-status + wrong-phone-number
+    - intent: user_state.private
+    - action: utter_great
+    - action: utter_ask_information.phone_number
     - intent: user_information.phone_number
     - action: action_validate-phone-number
     - slot_was_set:
-      - valid-phone-number: True
-    - action: utter_ask_information.best_call_time
-    - intent: user_information.best_call_time
-    - action: action_validate-time-date
-    - slot_was_set:
-      - valid-date-time: False
-    - action: utter_wrong_date-time
-
-  - story: user-gives-information-phone_number + correct-phone-number + wrong-date-time + end-conversation
-    steps:
-    - intent: user_information.phone_number
-    - action: action_validate-phone-number
-    - slot_was_set:
-      - valid-phone-number: True
-    - action: utter_ask_information.best_call_time
-    - intent: user_information.best_call_time
-    - action: action_validate-time-date
-    - slot_was_set:
-      - end-conversation: true
-    - action: utter_get-in-touch
-    - action: action_end-story
-
-  - story: user-gives-information-phone_number + wrong-phone-number
-    steps:
-    - intent: user_information.phone_number
-    - action: action_validate-phone-number
-    - slot_was_set:
-      - valid-phone-number: False
+      - valid-phone-number: false
     - action: utter_wrong_phone-number
 
-  - story: user-gives-information-best_call_time # correct date-time
-    steps:
-    - intent: user_information.best_call_time
-    - action: action_validate-time-date
-    - slot_was_set:
-      - valid-date-time: True
-    - action: utter_confirm
-    - action: action_end-story
-
-  - story: user-gives-information-best_call_time # wrong date-time
-    steps:
-    - intent: user_information.best_call_time
-    - action: action_validate-time-date
-    - slot_was_set:
-      - valid-date-time: False
-    - action: utter_wrong_date-time
-
-  - story: user-gives-information-best_call_time + end-conversation # wrong date-time
-    steps:
-    - intent: user_information.best_call_time
-    - action: action_validate-time-date
-    - slot_was_set:
-      - end-conversation: True
-    - action: utter_get-in-touch
-    - action: action_end-story
-
-  ### user refuse too give his number / wants to complete chatting
-
-  - story: buy-car-user_state-private + user refuse to give his number (wants to chat)
-    steps:
-    - intent: greet
-    - action: utter_greet
-    - action: utter_ask_about_user_state
+  - story: user_state-private-status + correct-phone-number + wrong-call-time
     - intent: user_state.private
+    - action: utter_great
     - action: utter_ask_information.phone_number
-    - intent: user.refuse_to_give_number
-    - action: utter_accept_user.refuse_to_give_number
-    - action: action_end-story
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: true
+    - action: utter_great
+    - action: utter_ask_information.call_time
+    - intent: user_information.call_time
+    - action: action_validate-call-time
+    - slot_was_set:
+      - valid-call-time: false
+    - action: utter_wrong_call-time
 
-  - story: user refuse to give his number
-    steps:
-    - intent: user.refuse_to_give_number
+  - story: deny-phone-number
+    - intent: deny
     - action: utter_accept_user.refuse_to_give_number
-    - action: action_end-story
+
+  - story: user_information-phone-number + correct-phone-number + correct-call-time
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: True
+    - action: utter_thanks
+    - action: utter_ask_information.call_time
+    - intent: user_information.call_time
+    - action: action_validate-call-time
+    - slot_was_set:
+      -valid-call-time: True
+    - action: utter_confirm
+    - action: utter_end_conversation
+
+  - story: user_information-phone-number + correct-phone-number + wrong-call-time
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: true
+    - action: utter_great
+    - action: utter_ask_information.call_time
+    - intent: user_information.call_time
+    - action: action_validate-call-time
+    - slot_was_set:
+      - valid-call-time: false
+    - action: utter_wrong_call-time
+
+  - story: user_information-call-time + correct-call-time
+    - intent: user_information.call_time
+    - action: action_validate-call-time
+    - slot_was_set:
+      - valid-call-time: true
+    - action: utter_confirm
+    - action: utter_end_conversation
+
+  - story: user_information-call-time + wrong-call-time
+    - intent: user_information.call_time
+    - action: action_validate-call-time
+    - slot_was_set:
+      - valid-call-time: false
+    - action: utter_wrong_call-time

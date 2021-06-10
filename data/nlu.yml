@@ -17,6 +17,12 @@ nlu:
     - good evening
     - good afternoon
     - hola
+    - it's available
+    - available
+    - yes, it's available
+    - yes it's available
+    - yes available
+    - yes, available
 
 - intent: goodbye
   examples: |
@@ -40,12 +46,6 @@ nlu:
     - of course
     - that sounds good
     - correct
-    - it's available
-    - available
-    - yes, it's available
-    - yes it's available
-    - yes available
-    - yes, available
     - good
 
 - intent: deny
@@ -59,6 +59,7 @@ nlu:
     - not really
     - nope
     - not
+    - sorry
     - unavailable
     - not available
     - no, it's not unavailable
@@ -66,6 +67,7 @@ nlu:
     - it's sold
     - sorry
     - sold
+
 
 - intent: thank_you
   examples: |
@@ -176,7 +178,7 @@ nlu:
     - 877271183991
     - 346-329-8091
 
-- intent: user_information.best_call_time
+- intent: user_information.call_time
   examples: |
     - you can call me at 6 am
     - You can make a call at 10 pm
@@ -273,3 +275,10 @@ nlu:
     - would like to chat here
     - I want to complete chatting here
     - can't we complete chatting here?
+
+- intent: user_state.other
+  examples: |
+    - distributor
+    - I am distributor
+    - I don't need to sell now
+    - no need

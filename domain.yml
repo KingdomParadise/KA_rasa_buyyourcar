@@ -27,56 +27,49 @@ responses:
   - text: "Greetings 😀"
   - text: "Hello, Nice to meet you! 😄"
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
   utter_goodbye:
   - text: "Bye"
 
-  utter_iamabot:
-  - text: "It's Ebunch Car Buying Team"
+  utter_great:
+  - text: "Awesome!"
+  - text: "Great!"
 
-  utter_ask_about_user_state:
+  utter_thanks:
+  - text: "Thanks!"
+  - text: "Thank you!"
+
+  utter_ask_user_state:
   - text: "Just wondering if it is a private sale or are you a dealer?"
   - text: "Are you a private sale or a dealer?"
-  - text: "Do you need a car for yourself or are you a dealer?"
 
   utter_ask_information.phone_number:
-  - text: "Awesome!\n\
-Would you mind sharing your phone number so we could have a detailed conversation?"
+  - text: "Would you mind sharing your phone number so we could have a detailed conversation?"
   - text: "Could you please provide your telephone number so we can discuss more details?"
 
-  utter_ask_information.best_call_time:
-  - text: "what is the best time to call you?"
+  utter_ask_information.call_time:
+  - text: "And what is the best time to call you?"
 
   utter_confirm:
   - text: "Great! Thank you, we will contact you on {date} at {time} on {phone-number} 👌\nWe will get back to you!"
   - text: "Awesome! Looking forward to contacting you on {date} at {time} on {phone-number}! 👌\nWe will get back to you!"
 
   utter_end_conversation:
-  - text: "ok, thanks"
-
-  utter_thank_you:
-  - text: "Anytime. That's what I'm here for."
-  - text: "It's my pleasure to help."
+  - text: "Thank you, Bye"
 
   utter_wrong_phone-number:
-  - text: "Sorry! but given phone number is wrong 😟\n\
-  Could you please re-enter it?"
+  - text: "Sorry😟 You sent wrong type of phone number. Could you send me phone number again?"
 
-  utter_wrong_date-time:
-  - text: "Sorry! but the given time is wrong 😟\n\
-  Could you please re-enter it?"
+  utter_wrong_call-time:
+  - text: "Sorry😟 You sent wrong type of date. Could you send me meeting date again?"
+
+  utter_wrong_user-type:
+  - text: "Sorry, I got it"
+
+  utter_wrong_bull-shit:
+  - text: "Thank you for your reply, We will contact you as soon as possible"
 
   utter_get-in-touch:
-  - text: "Thanks, we will be in touch with you"
+  - text: "Thanks, We will be in touch with you soon"
 
   utter_accept_user.refuse_to_give_number:
   - text: "OK, No worries we can chat here"
@@ -86,8 +79,8 @@ Would you mind sharing your phone number so we could have a detailed conversatio
 
 actions:
   - action_validate-phone-number
-  - action_validate-time-date
-  - action_end-story
+  - action_validate-call-time
+  - action_validate-user-type
 
 slots:
   valid-phone-number:
@@ -98,7 +91,7 @@ slots:
     type: text
     influence_conversation: false
   
-  valid-date-time:
+  valid-call-time:
     type: bool
     influence_conversation: true
   

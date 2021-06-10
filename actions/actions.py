@@ -117,19 +117,3 @@ class ActionValidateTime(Action):
             SlotSet("time", time_start),
             SlotSet("end-conversation", end_conversation),
         ]
-
-
-class ActionEndStory(Action):
-    def name(self) -> Text:
-        return "action_end-story"
-
-    def run(
-        self,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any],
-    ) -> List[Dict[Text, Any]]:
-
-        payload = {"recipient_id": tracker.sender_id, "status": 301}
-
-        dispatcher.utter_message(json_message=payload)
