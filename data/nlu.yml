@@ -17,12 +17,6 @@ nlu:
     - good evening
     - good afternoon
     - hola
-    - it's available
-    - available
-    - yes, it's available
-    - yes it's available
-    - yes available
-    - yes, available
 
 - intent: goodbye
   examples: |
@@ -104,7 +98,6 @@ nlu:
     - am I talking with a bot?
     - am I talking with a human?
 
-## Negating being a dealer --> means a private sale
 - intent: user_state.private
   examples: |
     - private
@@ -129,7 +122,6 @@ nlu:
     - I am not in the business of selling things
     - I am not a salesperson
     - I don't work as a dealer
-
 
 - intent: user_state.dealer
   examples: |

@@ -44,7 +44,7 @@ class ActionValidateTime(Action):
     datatime_wrong_entries = 0
 
     def name(self) -> Text:
-        return "action_validate-time-date"
+        return "action_validate-call-time"
 
     def run(
         self,
@@ -112,7 +112,7 @@ class ActionValidateTime(Action):
         time_start = ":".join(str(time_start).split(":")[:2])
 
         return [
-            SlotSet("valid-date-time", valid_date_time),
+            SlotSet("valid-call-time", valid_date_time),
             SlotSet("date", date),
             SlotSet("time", time_start),
             SlotSet("end-conversation", end_conversation),

@@ -3,13 +3,13 @@ version: "2.0"
 stories:
 
   - story: user_state-private-greet + correct-phone-number + correct-call-time
-   step:
+    steps:
     - intent: greet
     - action: utter_greet
     - action: utter_ask_user_state
     - intent: user_state.private
     - action: utter_great
-    - action: utter_ask_information
+    - action: utter_ask_information.phone_number
     - intent: user_information.phone_number
     - action: action_validate-phone-number
     - slot_was_set:
@@ -19,15 +19,17 @@ stories:
     - intent: user_information.call_time
     - action: action_validate-call-time
     - slot_was_set:
-      -valid-call-time: True
+      - valid-call-time: True
     - action: utter_confirm
     - action: utter_end_conversation
 
   - story: buy-car-user_deny
+    steps:
     - intent: deny
     - action: utter_end_conversation
 
   - story: user_state-dealder-greet
+    steps:
     - intent: greet
     - action: utter_greet
     - action: utter_ask_user_state
@@ -36,6 +38,7 @@ stories:
     - action: utter_goodbye
 
   - story: user_wrong-user-type
+    steps:
     - intent: greet
     - action: utter_greet
     - action: utter_ask_user_state
@@ -44,6 +47,7 @@ stories:
     - action: utter_end_conversation
 
   - story: user_state-private-greet + deny-phone-number
+    steps:
     - intent: greet
     - action: utter_greet
     - action: utter_ask_user_state
@@ -54,6 +58,7 @@ stories:
     - action: utter_accept_user.refuse_to_give_number
 
   - story: user_state-private-greet + wrong-phone-number
+    steps:
     - intent: greet
     - action: utter_greet
     - action: utter_ask_user_state
@@ -67,6 +72,7 @@ stories:
     - action: utter_wrong_phone-number
 
   - story: user_state-private-greet + correct-phone-number + wrong-call-time
+    steps:
     - intent: greet
     - action: utter_greet
     - action: utter_ask_user_state
@@ -86,13 +92,15 @@ stories:
     - action: utter_wrong_call-time
 
   - story: user_state-dealder-status
+    steps:
     - intent: user_state.dealer
     - action: utter_end_conversation
 
   - story: user_state-private-status + correct-phone-number + correct-call-time
+    steps:
     - intent: user_state.private
     - action: utter_great
-    - action: utter_ask_information
+    - action: utter_ask_information.phone_number
     - intent: user_information.phone_number
     - action: action_validate-phone-number
     - slot_was_set:
@@ -102,11 +110,12 @@ stories:
     - intent: user_information.call_time
     - action: action_validate-call-time
     - slot_was_set:
-      -valid-call-time: True
+      - valid-call-time: True
     - action: utter_confirm
     - action: utter_end_conversation
 
   - story: user_state-private-status + deny-phone-number
+    steps:
     - intent: user_state.private
     - action: utter_great
     - action: utter_ask_information.phone_number
@@ -114,6 +123,7 @@ stories:
     - action: utter_accept_user.refuse_to_give_number
 
   - story: user_state-private-status + wrong-phone-number
+    steps:
     - intent: user_state.private
     - action: utter_great
     - action: utter_ask_information.phone_number
@@ -124,6 +134,7 @@ stories:
     - action: utter_wrong_phone-number
 
   - story: user_state-private-status + correct-phone-number + wrong-call-time
+    steps:
     - intent: user_state.private
     - action: utter_great
     - action: utter_ask_information.phone_number
@@ -140,10 +151,12 @@ stories:
     - action: utter_wrong_call-time
 
   - story: deny-phone-number
+    steps:
     - intent: deny
     - action: utter_accept_user.refuse_to_give_number
 
   - story: user_information-phone-number + correct-phone-number + correct-call-time
+    steps:
     - intent: user_information.phone_number
     - action: action_validate-phone-number
     - slot_was_set:
@@ -153,11 +166,12 @@ stories:
     - intent: user_information.call_time
     - action: action_validate-call-time
     - slot_was_set:
-      -valid-call-time: True
+      - valid-call-time: True
     - action: utter_confirm
     - action: utter_end_conversation
 
   - story: user_information-phone-number + correct-phone-number + wrong-call-time
+    steps:
     - intent: user_information.phone_number
     - action: action_validate-phone-number
     - slot_was_set:
@@ -171,6 +185,7 @@ stories:
     - action: utter_wrong_call-time
 
   - story: user_information-call-time + correct-call-time
+    steps:
     - intent: user_information.call_time
     - action: action_validate-call-time
     - slot_was_set:
@@ -179,6 +194,7 @@ stories:
     - action: utter_end_conversation
 
   - story: user_information-call-time + wrong-call-time
+    steps:
     - intent: user_information.call_time
     - action: action_validate-call-time
     - slot_was_set:
