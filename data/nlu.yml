@@ -135,6 +135,10 @@ nlu:
     - I am a car trader
     - I work as a car trader
     - I am a trader of cars.
+    - distributor
+    - I am distributor
+    - I don't need to sell now
+    - no need
 
 - intent: user_information.phone_number
   examples: |
@@ -270,7 +274,4 @@ nlu:
 
 - intent: user_state.other
   examples: |
-    - distributor
-    - I am distributor
-    - I don't need to sell now
-    - no need
+    - I am in Houston

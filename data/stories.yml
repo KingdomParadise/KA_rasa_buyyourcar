@@ -44,7 +44,6 @@ stories:
     - action: utter_ask_user_state
     - intent: user_state.other
     - action: utter_wrong_user-type
-    - action: utter_end_conversation
 
   - story: user_state-private-greet + deny-phone-number
     steps:
@@ -70,6 +69,7 @@ stories:
     - slot_was_set:
       - valid-phone-number: false
     - action: utter_wrong_phone-number
+    - action: utter_ask_information.phone_number
 
   - story: user_state-private-greet + correct-phone-number + wrong-call-time
     steps:
@@ -90,6 +90,7 @@ stories:
     - slot_was_set:
       - valid-call-time: false
     - action: utter_wrong_call-time
+    - action: utter_ask_information.call_time
 
   - story: user_state-dealder-status
     steps:
@@ -132,6 +133,7 @@ stories:
     - slot_was_set:
       - valid-phone-number: false
     - action: utter_wrong_phone-number
+    - action: utter_ask_information.phone_number
 
   - story: user_state-private-status + correct-phone-number + wrong-call-time
     steps:
@@ -149,6 +151,7 @@ stories:
     - slot_was_set:
       - valid-call-time: false
     - action: utter_wrong_call-time
+    - action: utter_ask_information.call_time
 
   - story: deny-phone-number
     steps:
@@ -183,6 +186,7 @@ stories:
     - slot_was_set:
       - valid-call-time: false
     - action: utter_wrong_call-time
+    - action: utter_ask_information.call_time
 
   - story: user_information-call-time + correct-call-time
     steps:
@@ -200,3 +204,4 @@ stories:
     - slot_was_set:
       - valid-call-time: false
     - action: utter_wrong_call-time
+    - action: utter_ask_information.call_time

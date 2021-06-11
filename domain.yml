@@ -63,7 +63,7 @@ responses:
   - text: "Sorry😟 You sent wrong type of date. Could you send me meeting date again?"
 
   utter_wrong_user-type:
-  - text: "Sorry, I got it"
+  - text: "Sorry😟 You sent wrong type. Are you a private sale or a dealer?"
 
   utter_wrong_bull-shit:
   - text: "Thank you for your reply, We will contact you as soon as possible"
