@@ -17,6 +17,13 @@ nlu:
     - good evening
     - good afternoon
     - hola
+    - it is available
+    - available
+    - still available
+    - it's available
+    - hi, it's available
+    - hello, available
+    
 
 - intent: goodbye
   examples: |
