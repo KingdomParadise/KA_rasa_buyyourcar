@@ -17,6 +17,9 @@ pipeline:
     url: http://99.79.146.226:8000
     locale: en_GB
     dimensions: ["time","phone-number"]
+  #other components
+  - name: FallbackClassifier
+    threshold: 0.7
 
 
 # Configuration for Rasa Core.

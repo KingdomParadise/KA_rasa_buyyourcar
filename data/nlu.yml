@@ -124,11 +124,8 @@ nlu:
     - I would like to get myself a private car
     - I want to buy a private car
     - I would like to sell a car
-    - I am not a dealer
-    - I'm not a dealer
     - I am not in the business of selling things
     - I am not a salesperson
-    - I don't work as a dealer
 
 - intent: user_state.dealer
   examples: |

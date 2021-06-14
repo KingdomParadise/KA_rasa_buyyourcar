@@ -113,7 +113,7 @@ stories:
     - slot_was_set:
       - valid-call-time: True
     - action: utter_confirm
-    - action: utter_end_conversation
+    - action: c
 
   - story: user_state-private-status + deny-phone-number
     steps:
@@ -205,3 +205,8 @@ stories:
       - valid-call-time: false
     - action: utter_wrong_call-time
     - action: utter_ask_information.call_time
+
+  - story: Non Initial converstation- handle callback
+    steps:
+  - intent: nlu_fallback
+  - action: utter_get_back_to_you

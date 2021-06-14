@@ -39,8 +39,8 @@ responses:
   - text: "Thank you!"
 
   utter_ask_user_state:
-  - text: "Just wondering if it is a private sale or are you a dealer?"
-  - text: "Are you a private sale or a dealer?"
+  - text: "Just wondering if it is a private sale?"
+  - text: "Are you a private sale?"
 
   utter_ask_information.phone_number:
   - text: "Would you mind sharing your phone number so we could have a detailed conversation?"
@@ -75,6 +75,9 @@ responses:
   - text: "OK, No worries we can chat here"
   - text: "No problem, let's continue chatting here!"
   - text: "Alright!, let's keep chatting here"
+
+  utter_get_back_to_you:
+  - text: "Thanks. I will get back to you."
 
 
 actions:
