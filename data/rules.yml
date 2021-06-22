@@ -7,3 +7,8 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
+- rule: Say thank you anytime the user says goodbye
+  steps:
+  - intent: thank_you
+  - action: utter_thanks
+

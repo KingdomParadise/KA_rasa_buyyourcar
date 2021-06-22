@@ -90,7 +90,6 @@ stories:
     - slot_was_set:
       - valid-call-time: false
     - action: utter_wrong_call-time
-    - action: utter_ask_information.call_time
 
   - story: user_state-dealder-status
     steps:
@@ -113,7 +112,7 @@ stories:
     - slot_was_set:
       - valid-call-time: True
     - action: utter_confirm
-    - action: c
+    - action: utter_end_conversation
 
   - story: user_state-private-status + deny-phone-number
     steps:
@@ -151,7 +150,6 @@ stories:
     - slot_was_set:
       - valid-call-time: false
     - action: utter_wrong_call-time
-    - action: utter_ask_information.call_time
 
   - story: deny-phone-number
     steps:
@@ -186,7 +184,6 @@ stories:
     - slot_was_set:
       - valid-call-time: false
     - action: utter_wrong_call-time
-    - action: utter_ask_information.call_time
 
   - story: user_information-call-time + correct-call-time
     steps:
@@ -204,9 +201,8 @@ stories:
     - slot_was_set:
       - valid-call-time: false
     - action: utter_wrong_call-time
-    - action: utter_ask_information.call_time
 
   - story: Non Initial converstation- handle callback
     steps:
-  - intent: nlu_fallback
-  - action: utter_get_back_to_you
+    - intent: nlu_fallback
+    - action: utter_get_back_to_you

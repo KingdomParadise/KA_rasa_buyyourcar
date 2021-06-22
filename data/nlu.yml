@@ -23,7 +23,11 @@ nlu:
     - it's available
     - hi, it's available
     - hello, available
-    
+    - yes
+    - y
+    - yeah
+    - yes it is
+    - yes, it it
 
 - intent: goodbye
   examples: |
@@ -40,9 +44,6 @@ nlu:
 
 - intent: affirm
   examples: |
-    - yes
-    - y
-    - yeah
     - indeed
     - of course
     - that sounds good
@@ -76,6 +77,7 @@ nlu:
     - thanks for your help
     - thanks
     - many thanks
+    - thank you
 
 - intent: mood_great
   examples: |
