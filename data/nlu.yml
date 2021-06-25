@@ -49,6 +49,7 @@ nlu:
     - sure
     - yup
     - ok
+    - ya
 
 - intent: agreed
   examples: |
@@ -73,12 +74,14 @@ nlu:
     - nope
     - not
     - sorry
+
+- intent: unavailable
+  examples: |
     - unavailable
     - not available
     - no, it's not unavailable
     - it's not unavailable
     - it's sold
-    - sorry
     - sold
 
 - intent: thank_you

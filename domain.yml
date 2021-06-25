@@ -6,7 +6,8 @@ intents:
   - thank_you
   - affirm
   - agreed
-  - deny                
+  - deny
+  - unavailable
   - mood_great
   - mood_unhappy
   - bot_challenge
