@@ -17,7 +17,9 @@ nlu:
     - good evening
     - good afternoon
     - hola
-
+    - nice to meet you
+    - nice to meet you too
+    - I have someone coming to look at it tonight and a tentative offer but not sold yet
 
 - intent: goodbye
   examples: |
@@ -45,7 +47,8 @@ nlu:
     - yeah
     - right
     - sure
-    - offcourse
+    - yup
+    - ok
 
 - intent: agreed
   examples: |
@@ -77,7 +80,6 @@ nlu:
     - it's sold
     - sorry
     - sold
-
 
 - intent: thank_you
   examples: |
