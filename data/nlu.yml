@@ -42,13 +42,15 @@ nlu:
     - correct
     - good
     - yes
-    - yes
     - y
     - yeah
     - right
     - sure
     - yup
     - ok
+    - right
+    - ofcourse
+    - ya
 
 - intent: agreed
   examples: |
