@@ -132,7 +132,7 @@ stories:
 
   - story: user_state-private-status + correct-phone-number + correct-call-time
     steps:
-    -or: 
+    - or: 
       - intent: affirm
       - intent: user_state.private
     - action: utter_great
