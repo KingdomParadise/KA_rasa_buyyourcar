@@ -17,17 +17,7 @@ nlu:
     - good evening
     - good afternoon
     - hola
-    - it is available
-    - available
-    - still available
-    - it's available
-    - hi, it's available
-    - hello, available
-    - yes
-    - y
-    - yeah
-    - yes it is
-    - yes, it it
+
 
 - intent: goodbye
   examples: |
@@ -49,6 +39,24 @@ nlu:
     - that sounds good
     - correct
     - good
+    - yes
+    - yes
+    - y
+    - yeah
+    - right
+    - sure
+    - offcourse
+
+- intent: agreed
+  examples: |
+    - it is available
+    - available
+    - still available
+    - it's available
+    - hi, it's available
+    - hello, available
+    - yes it is
+    - yes, it it
 
 - intent: deny
   examples: |

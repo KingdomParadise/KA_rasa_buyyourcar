@@ -6,6 +6,8 @@ pipeline:
   - name: WhitespaceTokenizer
   - name: RegexFeaturizer
   - name: LexicalSyntacticFeaturizer
+    intent_tokenization_flag: False
+    intent_split_symbol: "+"
   - name: CountVectorsFeaturizer
   - name: CountVectorsFeaturizer
     analyzer: char_wb

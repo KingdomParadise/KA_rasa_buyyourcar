@@ -4,10 +4,14 @@ stories:
 
   - story: user_state-private-greet + correct-phone-number + correct-call-time
     steps:
-    - intent: greet
+    - or:
+      - intent: affirm
+      - intent: agreed
     - action: utter_greet
     - action: utter_ask_user_state
-    - intent: user_state.private
+    - or:
+      - intent: affirm
+      - intent: user_state.private
     - action: utter_great
     - action: utter_ask_information.phone_number
     - intent: user_information.phone_number
