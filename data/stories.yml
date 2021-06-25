@@ -33,7 +33,9 @@ stories:
 
   - story: buy-car-user_deny
     steps:
-    - intent: deny
+    - or:
+      - intent: unavailable
+      - intent: deny
     - action: utter_end_conversation
 
   - story: user_state-dealder-greet
