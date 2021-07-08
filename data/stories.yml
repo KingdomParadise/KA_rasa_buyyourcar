@@ -95,7 +95,6 @@ stories:
     - slot_was_set:
       - valid-phone-number: false
     - action: utter_wrong_phone-number
-    - action: utter_ask_information.phone_number
 
   - story: user_state-private-greet + correct-phone-number + wrong-call-time
     steps:
