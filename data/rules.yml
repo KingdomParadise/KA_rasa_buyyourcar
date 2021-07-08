@@ -12,3 +12,8 @@ rules:
   - intent: thank_you
   - action: utter_thanks
 
+- rule: Rule for item not available
+  steps:
+  - intent: unavailable
+  - action: utter_bye
+

@@ -81,6 +81,9 @@ responses:
   utter_get_back_to_you:
   - text: "Thanks. I will get back to you."
 
+  utter_bye:
+  - text: "Ok Thanks"
+
 actions:
   - action_validate-phone-number
   - action_validate-call-time
