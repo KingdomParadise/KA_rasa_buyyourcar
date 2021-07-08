@@ -15,5 +15,5 @@ rules:
 - rule: Rule for item not available
   steps:
   - intent: unavailable
-  - action: utter_bye
+  - action: utter_end_conversation
 
