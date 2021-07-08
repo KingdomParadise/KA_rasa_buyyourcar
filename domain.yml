@@ -41,8 +41,8 @@ responses:
   - text: "Thank you!"
 
   utter_ask_user_state:
-  - text: "Just wondering if it is a private?"
-  - text: "Are you a private sale?"
+  - text: "Just wondering if it is a private or a dealer?"
+  - text: "Are you a private sale or a dealer?"
 
   utter_ask_information.phone_number:
   - text: "Would you mind sharing your phone number so we could have a detailed conversation?"
