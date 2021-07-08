@@ -166,6 +166,7 @@ nlu:
     - I am distributor
     - I don't need to sell now
     - no need
+    - it's not a private sale. It's in a dealership
 
 - intent: user_information.phone_number
   examples: |
