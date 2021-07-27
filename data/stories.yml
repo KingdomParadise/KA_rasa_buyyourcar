@@ -270,3 +270,8 @@ stories:
     steps:
     - intent: nlu_fallback
     - action: utter_get_back_to_you
+
+  - story: Story for item not available at all stages
+    steps:
+    - intent: unavailable
+    - action: utter_end_conversation

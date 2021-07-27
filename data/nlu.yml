@@ -84,6 +84,13 @@ nlu:
     - it's not unavailable
     - it's sold
     - sold
+    - Sorry the car was sold already
+    - its gone
+    - not available
+    - vehicle is already sold
+    - i have already sold it
+    - sorry not available
+    - its sold
 
 - intent: thank_you
   examples: |
@@ -159,6 +166,7 @@ nlu:
     - I am distributor
     - I don't need to sell now
     - no need
+    - it's not a private sale. It's in a dealership
 
 - intent: user_information.phone_number
   examples: |
