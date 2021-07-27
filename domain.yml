@@ -5,9 +5,7 @@ intents:
   - goodbye
   - thank_you
   - affirm
-  - agreed
-  - deny
-  - unavailable
+  - deny                
   - mood_great
   - mood_unhappy
   - bot_challenge
@@ -59,7 +57,7 @@ responses:
   - text: "Thank you, Bye"
 
   utter_wrong_phone-number:
-  - text: "Could you send me phone number again so that we can discuss in more detail?"
+  - text: "Sorry! You sent wrong type of phone number. Could you send me phone number again?"
 
   utter_wrong_call-time:
   - text: "We will contact you by your phone number at a time convenient for you. Thank you"
