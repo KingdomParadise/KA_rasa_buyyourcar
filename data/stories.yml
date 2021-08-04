@@ -1,0 +1,208 @@
+version: "2.0"
+
+stories:
+
+  - story: user_state-private-greet + correct-phone-number + correct-call-time
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_user_state
+    - intent: user_state.private
+    - action: utter_great
+    - action: utter_ask_information.phone_number
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: True
+    - action: utter_thanks
+    - action: utter_ask_information.call_time
+    - intent: user_information.call_time
+    - action: action_validate-call-time
+    - slot_was_set:
+      - valid-call-time: True
+    - action: utter_confirm
+    - action: utter_end_conversation
+
+  - story: buy-car-user_deny
+    steps:
+    - intent: deny
+    - action: utter_end_conversation
+
+  - story: user_state-dealder-greet
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_user_state
+    - intent: user_state.dealer
+    - action: utter_thanks
+    - action: utter_goodbye
+
+  - story: user_wrong-user-type
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_user_state
+    - intent: user_state.other
+    - action: utter_wrong_user-type
+
+  - story: user_state-private-greet + deny-phone-number
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_user_state
+    - intent: user_state.private
+    - action: utter_great
+    - action: utter_ask_information.phone_number
+    - intent: deny
+    - action: utter_accept_user.refuse_to_give_number
+
+  - story: user_state-private-greet + wrong-phone-number
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_user_state
+    - intent: user_state.private
+    - action: utter_great
+    - action: utter_ask_information.phone_number
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: false
+    - action: utter_wrong_phone-number
+    - action: utter_ask_information.phone_number
+
+  - story: user_state-private-greet + correct-phone-number + wrong-call-time
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_user_state
+    - intent: user_state.private
+    - action: utter_great
+    - action: utter_ask_information.phone_number
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: true
+    - action: utter_great
+    - action: utter_ask_information.call_time
+    - intent: user_information.call_time
+    - action: action_validate-call-time
+    - slot_was_set:
+      - valid-call-time: false
+    - action: utter_wrong_call-time
+
+  - story: user_state-dealder-status
+    steps:
+    - intent: user_state.dealer
+    - action: utter_end_conversation
+
+  - story: user_state-private-status + correct-phone-number + correct-call-time
+    steps:
+    - intent: user_state.private
+    - action: utter_great
+    - action: utter_ask_information.phone_number
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: True
+    - action: utter_thanks
+    - action: utter_ask_information.call_time
+    - intent: user_information.call_time
+    - action: action_validate-call-time
+    - slot_was_set:
+      - valid-call-time: True
+    - action: utter_confirm
+    - action: utter_end_conversation
+
+  - story: user_state-private-status + deny-phone-number
+    steps:
+    - intent: user_state.private
+    - action: utter_great
+    - action: utter_ask_information.phone_number
+    - intent: deny
+    - action: utter_accept_user.refuse_to_give_number
+
+  - story: user_state-private-status + wrong-phone-number
+    steps:
+    - intent: user_state.private
+    - action: utter_great
+    - action: utter_ask_information.phone_number
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: false
+    - action: utter_wrong_phone-number
+    - action: utter_ask_information.phone_number
+
+  - story: user_state-private-status + correct-phone-number + wrong-call-time
+    steps:
+    - intent: user_state.private
+    - action: utter_great
+    - action: utter_ask_information.phone_number
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: true
+    - action: utter_great
+    - action: utter_ask_information.call_time
+    - intent: user_information.call_time
+    - action: action_validate-call-time
+    - slot_was_set:
+      - valid-call-time: false
+    - action: utter_wrong_call-time
+
+  - story: deny-phone-number
+    steps:
+    - intent: deny
+    - action: utter_accept_user.refuse_to_give_number
+
+  - story: user_information-phone-number + correct-phone-number + correct-call-time
+    steps:
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: True
+    - action: utter_thanks
+    - action: utter_ask_information.call_time
+    - intent: user_information.call_time
+    - action: action_validate-call-time
+    - slot_was_set:
+      - valid-call-time: True
+    - action: utter_confirm
+    - action: utter_end_conversation
+
+  - story: user_information-phone-number + correct-phone-number + wrong-call-time
+    steps:
+    - intent: user_information.phone_number
+    - action: action_validate-phone-number
+    - slot_was_set:
+      - valid-phone-number: true
+    - action: utter_great
+    - action: utter_ask_information.call_time
+    - intent: user_information.call_time
+    - action: action_validate-call-time
+    - slot_was_set:
+      - valid-call-time: false
+    - action: utter_wrong_call-time
+
+  - story: user_information-call-time + correct-call-time
+    steps:
+    - intent: user_information.call_time
+    - action: action_validate-call-time
+    - slot_was_set:
+      - valid-call-time: true
+    - action: utter_confirm
+    - action: utter_end_conversation
+
+  - story: user_information-call-time + wrong-call-time
+    steps:
+    - intent: user_information.call_time
+    - action: action_validate-call-time
+    - slot_was_set:
+      - valid-call-time: false
+    - action: utter_wrong_call-time
+
+  - story: Non Initial converstation- handle callback
+    steps:
+    - intent: nlu_fallback
+    - action: utter_get_back_to_you

@@ -1,0 +1,110 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - thank_you
+  - affirm
+  - deny                
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - user_state.dealer
+  - user_state.private
+  - user_information.phone_number
+  - user_information.best_call_time
+  - user.refuse_to_give_number
+
+entities:
+  - phone-number
+  - time
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+  - text: "Nice to meet you!"
+  - text: "Hey There"
+  - text: "Greetings"
+  - text: "Hello, Nice to meet you!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_great:
+  - text: "Awesome!"
+  - text: "Great!"
+
+  utter_thanks:
+  - text: "Thanks!"
+  - text: "Thank you!"
+
+  utter_ask_user_state:
+  - text: "Just wondering if it is a private or a dealer?"
+  - text: "Are you a private sale or a dealer?"
+
+  utter_ask_information.phone_number:
+  - text: "Would you mind sharing your phone number so we could have a detailed conversation?"
+  - text: "Could you please provide your telephone number so we can discuss more details?"
+
+  utter_ask_information.call_time:
+  - text: "And what is the best time to call you?"
+
+  utter_confirm:
+  - text: "Great! Thank you, we will contact you on {date} at {time} on {phone-number} We will get back to you!"
+  - text: "Awesome! Looking forward to contacting you on {date} at {time} on {phone-number}! We will get back to you!"
+
+  utter_end_conversation:
+  - text: "Thank you, Bye"
+
+  utter_wrong_phone-number:
+  - text: "Sorry! You sent wrong type of phone number. Could you send me phone number again?"
+
+  utter_wrong_call-time:
+  - text: "We will contact you by your phone number at a time convenient for you. Thank you"
+
+  utter_wrong_user-type:
+  - text: "Sorry! You sent wrong type. Are you a private sale or a dealer?"
+
+  utter_wrong_bull-shit:
+  - text: "Thank you for your reply, We will contact you as soon as possible"
+
+  utter_get-in-touch:
+  - text: "Thanks, We will be in touch with you soon"
+
+  utter_accept_user.refuse_to_give_number:
+  - text: "OK, No worries we can chat here"
+  - text: "No problem, let's continue chatting here!"
+  - text: "Alright!, let's keep chatting here"
+
+  utter_get_back_to_you:
+  - text: "Thanks. I will get back to you."
+
+actions:
+  - action_validate-phone-number
+  - action_validate-call-time
+  - action_validate-user-type
+
+slots:
+  valid-phone-number:
+    type: bool
+    influence_conversation: true
+  
+  phone-number:
+    type: text
+    influence_conversation: false
+  
+  valid-call-time:
+    type: bool
+    influence_conversation: true
+  
+  date:
+    type: text
+    influence_conversation: false
+
+  time:
+    type: text
+    influence_conversation: false
+
+  end-conversation:
+    type: bool
+    influence_conversation: true
